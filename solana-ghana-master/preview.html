@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solana Ghana — Build, connect, empower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app/globals.css" />
+<style>
+  /* Nav links to preview pages */
+  .preview-nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .preview-nav a { padding: 8px 14px; background: rgba(10,10,20,.92); border: 1px solid rgba(20,241,149,.5); border-radius: 999px; color: #14f195; font: 600 11px 'Space Grotesk', sans-serif; letter-spacing: .05em; cursor: pointer; transition: background .2s; }
+  .preview-nav a:hover { background: rgba(20,241,149,.15); }
+  .preview-nav a.active { background: rgba(20,241,149,.2); }
+
+  /* Page sections — only show active page */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* Adjust for fixed nav offset in preview */
+  .site-header { position: fixed !important; }
+
+  /* Shimmer for learn-cta & build-cta in preview */
+  .learn-cta::before, .build-cta::before { background-size: 300% 100%; }
+</style>
+</head>
+<body>
+
+<div class="site cream" id="app">
+
+  <!-- SHARED HEADER -->
+  <header class="site-header cream" id="main-header">
+    <a href="#" class="brand" onclick="showPage('home');return false;">
+      <img src="public/solana_ghana.jpeg" alt="Solana Ghana Community" />
+      <span>Solana<br>Ghana</span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+      <a href="#" onclick="showPage('home');return false;" class="active" id="nav-home">Home</a>
+      <a href="#" onclick="showPage('learn');return false;" id="nav-learn">Learn</a>
+      <a href="#" onclick="showPage('build');return false;" id="nav-build">Build</a>
+      <a href="#" onclick="showPage('ambassadors');return false;" id="nav-ambassadors">Ambassadors</a>
+      <a href="#" onclick="showPage('security');return false;" id="nav-security">Teams</a>
+      <a href="#" onclick="showPage('events');return false;" id="nav-events">Events</a>
+      <a href="#" onclick="showPage('community');return false;" id="nav-community">Community</a>
+    </nav>
+    <a class="header-join" href="https://t.me/solanaghanacommunity" target="_blank">Join us <span>↗</span></a>
+    <button class="menu-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Toggle menu"><span></span><span></span></button>
+  </header>
+
+  <!-- ══════════════════════════════ HOME PAGE ══════════════════════════════ -->
+  <main class="page active home-page" id="page-home">
+    <section class="home-hero">
+      <div class="hero-grid"></div>
+      <span class="adinkra adinkra-gye-nyame" role="img" aria-label="Gye Nyame symbol"><img src="public/gye-nyame-medium.png" alt="" /></span>
+      <div class="hero-copy reveal-up">
+        <p class="eyebrow"><i></i>Solana Ghana Community</p>
+        <h1>Akw<span class="hero-word-yellow">a</span><span class="hero-word-tail">aba</span><span class="hero-word-period">.</span></h1>
+        <p class="hero-lede">The gateway for Ghanaian builders to learn, build, and reach the Solana ecosystem.</p>
+        <div class="hero-actions">
+          <a class="button button-ink button-default" href="#" onclick="showPage('community');return false;">Join the founding cohort <span>↗</span></a>
+          <a class="text-link" href="#" onclick="showPage('learn');return false;">See how it works <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-note">Twi for <b>welcome</b> <span>⌁</span> From Ghana, into the network.</div>
+      <div class="flag-line"><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="numbers wrap" aria-label="Community targets">
+      <div><strong class="metric-value">4</strong><span class="metric-label">founders organizing</span></div>
+      <div><strong class="metric-value">1+</strong><span class="metric-label">university to begin</span></div>
+      <div><strong class="metric-value">30+</strong><span class="metric-label">Q1 member target</span></div>
+      <div><strong class="metric-value">$200</strong><span class="metric-label">self-funded start</span></div>
+    </section>
+
+    <section class="infrastructure wrap">
+      <div class="section-intro">
+        <p class="eyebrow"><i></i>Our point of view</p>
+        <h2>Not an event.<br><em>Infrastructure.</em></h2>
+        <p>We are building the local systems that turn curiosity into contribution—not a one-off meetup calendar.</p>
+      </div>
+      <div class="infrastructure-grid">
+        <article><b>01</b><h3>Talent pipeline</h3><p>Campus introductions, practical workshops, contribution tasks, build sprints and pathways into work.</p></article>
+        <article><b>02</b><h3>Safe by default</h3><p>Security review culture, wallet safety and transparent developer assurance from day one.</p></article>
+        <article><b>03</b><h3>Local problems</h3><p>Build prompts rooted in merchant workflows, remittances and Ghanaian payment realities.</p></article>
+        <article><b>04</b><h3>Public receipts</h3><p>Open curriculum, Speed Test data and visible builder outcomes to earn every next step.</p></article>
+      </div>
+    </section>
+
+    <section class="chainpay wrap">
+      <div class="chainpay-image">
+        <img src="public/solana_ghana_project.jpeg" alt="ChainPay x402" />
+        <span>First project shipped</span>
+      </div>
+      <div class="chainpay-copy">
+        <p class="eyebrow lime"><i></i>Featured build</p>
+        <h2>Proof lives<br>in the work.</h2>
+        <p>ChainPay is a live Devnet payment project from the founding ecosystem—a concrete starting point for the builders we want to grow.</p>
+        <a class="button button-lime button-default" href="https://chainpay-frontend.onrender.com" target="_blank">Open ChainPay <span>↗</span></a>
+        <small>Live on Devnet · explore the interface</small>
+      </div>
+    </section>
+
+    <section class="event-teaser wrap">
+      <div class="section-intro">
+        <p class="eyebrow"><i></i>First quarter</p>
+        <h2>Come with<br>your questions.</h2>
+      </div>
+      <div class="event-list">
+        <article><b>01</b><div><h3>Akwaaba Genesis Meetup</h3><p>Meet the vision. Meet the people. Help form the first cohort.</p></div><a href="#" onclick="showPage('events');return false;">↗</a></article>
+        <article><b>02</b><div><h3>Faucet &amp; Wallet Build Night</h3><p>Hands-on contributions to shared onboarding tools.</p></div><a href="#" onclick="showPage('events');return false;">↗</a></article>
+        <article><b>03</b><div><h3>Africa Solana Speed Test</h3><p>Create the first public dataset from Ghanaian connections.</p></div><a href="#" onclick="showPage('events');return false;">↗</a></article>
+      </div>
+    </section>
+
+    <section class="home-join" id="join">
+      <div class="orbit-mark" aria-hidden="true"><span class="orbit-ring one"></span><span class="orbit-ring two"></span><span class="orbit-core"></span></div>
+      <div>
+        <p class="eyebrow light"><i></i>The beginning is small</p>
+        <h2>Make your first<br><em>useful move.</em></h2>
+      </div>
+      <form class="signup dark" onsubmit="this.querySelector('small').textContent='Thank you — we\'ll be in touch when the founding cohort opens.';this.querySelector('button').textContent='You\'re in ↗';return false;">
+        <label>Get the first invite</label>
+        <div><input type="email" placeholder="you@example.com" required /><button class="button button-lime button-default" type="submit">Keep me posted ↗</button></div>
+        <small>Founding cohort updates only. No noise.</small>
+      </form>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ LEARN PAGE ══════════════════════════════ -->
+  <main class="page learn-page" id="page-learn">
+    <section class="learn-hero wrap">
+      <span class="adinkra adinkra-nkyinkyim" role="img" aria-label="Nkyinkyim symbol"><img src="public/akofena-medium.png" alt="" /></span>
+      <div>
+        <p class="eyebrow"><i></i>Learning that ends in making</p>
+        <h1>Start where<br>the work gets <em>real.</em></h1>
+        <p>A structured, self-paced Rust-to-Solana path for the first Ghanaian cohort—made for beginners with ambition, not spectators.</p>
+        <a class="button button-ink button-default" href="#" onclick="showPage('courses');return false;">Explore the course ↗</a>
+      </div>
+      <div class="book-stack" aria-hidden="true">
+        <div class="book b1">RUST</div>
+        <div class="book b2">SOLANA</div>
+        <div class="book b3">SHIP IT</div>
+        <div class="orbit-mark"><span class="orbit-ring one"></span><span class="orbit-ring two"></span><span class="orbit-core"></span></div>
+      </div>
+    </section>
+
+    <section class="course-wrap">
+      <div class="wrap">
+        <p class="eyebrow"><i></i>Solana Core Course</p>
+        <div class="course-header">
+          <h2>Four moves.<br><em>One capability.</em></h2>
+          <p>Our curriculum is already open-source and designed to turn learning into an artifact: a working capstone and a visible contribution trail.</p>
+        </div>
+        <div class="module-grid">
+          <article><b>01</b><div class="module-icon">✦</div><h3>Rust foundations</h3><p>Get comfortable with the language underneath durable Solana programs.</p></article>
+          <article><b>02</b><div class="module-icon">✦</div><h3>Solana essentials</h3><p>Learn accounts, transactions, PDAs and the network model through practice.</p></article>
+          <article><b>03</b><div class="module-icon">✦</div><h3>Anchor workshop</h3><p>Move from concepts into programs, tests and a real build workflow.</p></article>
+          <article><b>04</b><div class="module-icon">✦</div><h3>Capstone</h3><p>Ship a localnet vault or escrow project worth showing in a portfolio.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ambassador wrap">
+      <div class="ambassador-tag">Campus<br>to<br>community</div>
+      <div>
+        <p class="eyebrow"><i></i>Ambassador programme</p>
+        <h2>A lead in every room that matters.</h2>
+        <p>We begin with Wisconsin Ghana University, equipping a named student lead with curriculum, presentation material, a dedicated community role and a direct line to the core team.</p>
+        <div class="pill-list">
+          <span>Run monthly meetups</span><span>Recruit builders</span><span>Surface local projects</span><span>Represent campus at demo day</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners wrap">
+      <p class="eyebrow"><i></i>First campus cells</p>
+      <div>
+        <h2>Built to outlast<br>a single event.</h2>
+        <div class="partner-list">
+          <article><b>01</b><h3>Wisconsin Ghana University</h3><span class="status live">Active outreach</span></article>
+          <article><b>02</b><h3>Next partner</h3><span class="status">To be confirmed</span></article>
+          <article><b>03</b><h3>Next partner</h3><span class="status">To be confirmed</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-cta">
+      <h2>Don't just<br>collect links.</h2>
+      <a href="#" onclick="showPage('community');return false;">Join the learning cohort ↗</a>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ BUILD PAGE ══════════════════════════════ -->
+  <main class="page build-page" id="page-build">
+    <section class="build-hero wrap">
+      <span class="adinkra adinkra-sankofa" role="img" aria-label="Sankofa symbol"><img src="public/akoma-ntoaso-medium.png" alt="" /></span>
+      <div>
+        <p class="eyebrow lime"><i></i>Builder cloud</p>
+        <h1>Make a dent<br>in the <em>real.</em></h1>
+        <p>We start with useful systems, Ghanaian questions and artifacts that have somewhere to go after demo day.</p>
+        <a class="button button-lime button-default" href="#" onclick="showPage('community');return false;">Find a build lane ↗</a>
+      </div>
+      <div class="dimension" aria-hidden="true">
+        <div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="dimension-copy">BUILD<br><span>LOCALLY</span></div>
+      </div>
+      <nav class="build-subnav" aria-label="Build page sections">
+        <a href="#projects">Projects</a><a href="#learning-hub">Learning hub</a><a href="#opportunities-hub">Opportunities</a><a href="#bounties">Bounties</a>
+      </nav>
+    </section>
+
+    <section class="project-shelf wrap" id="projects">
+      <div class="shelf-title">
+        <p class="eyebrow lime"><i></i>Work in view</p>
+        <h2>Current<br>signals.</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project live">
+          <div class="project-number">01</div>
+          <img src="public/solana_ghana_project.jpeg" alt="ChainPay x402" />
+          <span class="project-status">Live on Devnet</span>
+          <h3>ChainPay</h3>
+          <p>Transparent payment flows, receipts and builder-facing infrastructure.</p>
+          <a href="https://chainpay-frontend.onrender.com" target="_blank">View project ↗</a>
+        </article>
+        <article class="project build">
+          <div class="project-number">02</div>
+          <span class="project-status">In development</span>
+          <h3>Akwaaba Faucet</h3>
+          <p>A shared first contribution surface: onboarding, verification and wallet support.</p>
+          <a href="#" onclick="showPage('community');return false;">Contribute ↗</a>
+        </article>
+        <article class="project plan">
+          <div class="project-number">03</div>
+          <span class="project-status">Planning</span>
+          <h3>Africa Speed Test</h3>
+          <p>Open measurement data on Solana performance from Ghanaian connections.</p>
+          <a href="#" onclick="showPage('community');return false;">Contribute ↗</a>
+        </article>
+        <article class="project concept">
+          <div class="project-number">04</div>
+          <span class="project-status">Research concept</span>
+          <h3>Payments Sandbox</h3>
+          <p>A controlled prototype environment for merchant workflow research.</p>
+          <a href="#" onclick="showPage('community');return false;">Contribute ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="build-hubs wrap">
+      <div class="build-hub" id="learning-hub">
+        <p class="eyebrow lime"><i></i>Learning hub</p>
+        <h2>Learn by<br><em>building.</em></h2>
+        <p>Resources organised around the skills that let a new builder become useful quickly.</p>
+        <div class="build-hub-list">
+          <a href="#"><b>01</b><span>Beginner</span>↗</a>
+          <a href="#"><b>02</b><span>Rust</span>↗</a>
+          <a href="#"><b>03</b><span>Anchor</span>↗</a>
+          <a href="#"><b>04</b><span>Frontend</span>↗</a>
+          <a href="#"><b>05</b><span>Solana programs</span>↗</a>
+          <a href="#"><b>06</b><span>DeFi</span>↗</a>
+          <a href="#"><b>07</b><span>AI × Solana</span>↗</a>
+          <a href="#"><b>08</b><span>Agentic payments</span>↗</a>
+        </div>
+      </div>
+      <div class="build-hub opportunities" id="opportunities-hub">
+        <p class="eyebrow lime"><i></i>Opportunities hub</p>
+        <h2>Turn skill into<br><em>a next step.</em></h2>
+        <p>Verified calls and pathways will appear here as they are confirmed—without inflated claims or stale listings.</p>
+        <div class="build-hub-list">
+          <a href="#"><b>01</b><span>Grants</span>↗</a>
+          <a href="#"><b>02</b><span>Hackathons</span>↗</a>
+          <a href="#" onclick="showPage('bounties');return false;"><b>03</b><span>Bounties</span>↗</a>
+          <a href="#"><b>04</b><span>Jobs</span>↗</a>
+          <a href="#"><b>05</b><span>Fellowships</span>↗</a>
+          <a href="#" onclick="showPage('ambassadors');return false;"><b>06</b><span>Ambassador programs</span>↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="build-bounties" id="bounties">
+      <div class="wrap">
+        <div class="build-bounties-intro">
+          <div>
+            <p class="eyebrow lime"><i></i>Bounty board</p>
+            <h2>Earn by making<br><em>useful things.</em></h2>
+          </div>
+          <p>A single, honest place for Ghanaian builders to find ecosystem work, contribute visibly, and earn when verified opportunities are available.</p>
+        </div>
+        <div class="build-bounty-grid">
+          <article>
+            <p class="eyebrow lime"><i></i>Active bounties</p>
+            <h3>Active bounties</h3>
+            <p>Open opportunities will appear here when verified. We will not invent rewards, deadlines, or ecosystem partnerships.</p>
+            <strong>No active bounties published yet.</strong>
+            <small>Published bounties will show reward, deadline, difficulty, skills and a clear apply or submit action.</small>
+          </article>
+          <article>
+            <p class="eyebrow lime"><i></i>Community bounties</p>
+            <h3>Community bounties</h3>
+            <p>Tasks created for useful, reviewable public work with clear terms and visible receipts.</p>
+            <strong>Community bounty board is being prepared.</strong>
+            <small>Published bounties will show reward, deadline, difficulty, skills and a clear apply or submit action.</small>
+          </article>
+          <article>
+            <p class="eyebrow lime"><i></i>Past bounties</p>
+            <h3>Past bounties</h3>
+            <p>Tasks created for useful, reviewable public work with clear terms and visible receipts.</p>
+            <strong>No completed bounties yet.</strong>
+            <small>Published bounties will show reward, deadline, difficulty, skills and a clear apply or submit action.</small>
+          </article>
+        </div>
+        <div class="build-bounty-actions">
+          <a href="#" onclick="showPage('community');return false;">Post a bounty ↗</a>
+          <a href="#" onclick="showPage('community');return false;">Submit completed work ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sandbox">
+      <div class="wrap sandbox-inner">
+        <div>
+          <p class="eyebrow lime"><i></i>Flagship experiment</p>
+          <h2>Payments, without the hand-waving.</h2>
+          <p>The Ghana Stablecoin Payments &amp; Commerce Sandbox is deliberately a controlled prototype and research environment—not a real-money pilot, on/off-ramp or custody product.</p>
+        </div>
+        <div class="sandbox-orbit">
+          <span>Merchant payments</span><span>Payment links</span><span>Receipts</span><span>Refunds</span><span>Reconciliation</span>
+          <i><img src="public/solan_prorton.jpg" alt="Solana Proton" /></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="build-cta">
+      <p>Have a useful contribution?</p>
+      <a href="#" onclick="showPage('community');return false;">Bring it into the room ↗</a>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ EVENTS PAGE ══════════════════════════════ -->
+  <main class="page events-page" id="page-events">
+    <section class="events-hero wrap">
+      <span class="adinkra adinkra-gye-nyame" role="img" aria-label="Gye Nyame symbol"><img src="public/gye-nyame-medium.png" alt="" /></span>
+      <p class="eyebrow"><i></i>Q1 programme</p>
+      <h1>Meet.<br>Make.<br><em>Show it.</em></h1>
+      <p>A lean, repeatable structure with one purpose: turn attendees into contributors.</p>
+      <div class="programme-flow">
+        <span>Meetup</span><i>→</i><span>Workshop</span><i>→</i><span>Build sprint</span><i>→</i><span>Demo</span>
+      </div>
+    </section>
+
+    <section class="event-timeline wrap">
+      <article>
+        <div class="event-dot"><b>01</b></div>
+        <div class="event-main">
+          <p class="eyebrow"><i></i>Introduction · Community</p>
+          <h2>Akwaaba Genesis Meetup</h2>
+          <p>Meet the vision, recruit founding members and introduce the first Campus Ambassador path.</p>
+          <a href="#" onclick="showPage('community');return false;">Raise your hand ↗</a>
+        </div>
+        <div class="event-art"><span>AKWAABA</span></div>
+      </article>
+      <article>
+        <div class="event-dot"><b>02</b></div>
+        <div class="event-main">
+          <p class="eyebrow"><i></i>Workshop · Contribution</p>
+          <h2>Faucet &amp; Wallet Build Night</h2>
+          <p>Build or improve a shared onboarding tool: the UI, bot, verification, anti-abuse or analytics.</p>
+          <a href="#" onclick="showPage('community');return false;">Raise your hand ↗</a>
+        </div>
+        <div class="event-art"><span>MAKE</span></div>
+      </article>
+      <article>
+        <div class="event-dot"><b>03</b></div>
+        <div class="event-main">
+          <p class="eyebrow"><i></i>Research · Public good</p>
+          <h2>Africa Solana Speed Test</h2>
+          <p>Run measurement tooling from different connections and locations to produce a public Ghana dataset.</p>
+          <a href="#" onclick="showPage('community');return false;">Raise your hand ↗</a>
+        </div>
+        <div class="event-art"><span>MEASURE</span></div>
+      </article>
+    </section>
+
+    <section class="future-event">
+      <div class="wrap">
+        <p class="eyebrow"><i></i>Future phase · funding dependent</p>
+        <h2>Validator School Ghana</h2>
+        <p>A six-week practical cohort in architecture, monitoring, server security, incident response and public postmortems—not a one-day talk.</p>
+        <span class="future-tag">Not committed to a timeline</span><br>
+        <a class="future-event-link" href="#" onclick="showPage('security');return false;">Explore the Validators team ↗</a>
+      </div>
+    </section>
+
+    <section class="events-join">
+      <h2>Be there before<br>it gets loud.</h2>
+      <form class="signup light" onsubmit="this.querySelector('small').textContent='Thank you — we\'ll be in touch when the founding cohort opens.';this.querySelector('button').textContent='You\'re in ↗';return false;">
+        <label>Get the first invite</label>
+        <div><input type="email" placeholder="you@example.com" required /><button class="button button-ink button-default" type="submit">Keep me posted ↗</button></div>
+        <small>Founding cohort updates only. No noise.</small>
+      </form>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ TEAMS PAGE ══════════════════════════════ -->
+  <main class="page teams-page" id="page-security">
+    <section class="teams-hero wrap">
+      <span class="adinkra adinkra-sankofa" role="img" aria-label="Sankofa symbol"><img src="public/akoma-ntoaso-medium.png" alt="" /></span>
+      <div>
+        <p class="eyebrow"><i></i>Community super team</p>
+        <h1>Four teams.<br><em>One stack.</em></h1>
+        <p>Specialists build independently, then plug into each other: validators underwrite the rails, the sandbox settles agents, and mobile makes the work useful.</p>
+        <div class="team-stack-nav">
+          <a href="#validators">Validators</a><a href="#stablecoin-sandbox">Sandbox</a><a href="#agentic-payments">Agentic</a><a href="#mobile-consumer">Mobile</a>
+        </div>
+      </div>
+      <div class="stack-visual" aria-label="Team stack">
+        <span>Mobile &amp; Consumer</span><span>Agentic Payments</span><span>Stablecoin Sandbox</span><span>Validators</span>
+      </div>
+    </section>
+
+    <section class="team-grid wrap">
+      <article id="validators">
+        <div class="team-card-top"><b>01</b><p class="eyebrow"><i></i>The foundation</p></div>
+        <h2>Validators</h2>
+        <p>Run a six-week Validator School covering node setup, security, monitoring, incident response, and operations.</p>
+        <strong class="team-benefit-label">What members get</strong>
+        <ul>
+          <li>Hands-on access to a shared testnet/devnet validator</li>
+          <li>Path into the Solana Foundation Delegation Program (SFDP)</li>
+          <li>Validator-track resume line and referral network</li>
+        </ul>
+        <div class="team-resources"><b>Reference links</b>
+          <a href="https://docs.anza.xyz/operations/guides/validator-start" target="_blank">Agave validator setup guide ↗</a>
+          <a href="https://solana.org/faq" target="_blank">SFDP FAQ ↗</a>
+          <a href="https://github.com/solana-validators/solana-validator-guidebook" target="_blank">Validator Guidebook ↗</a>
+        </div>
+        <a href="#apply">Join this team ↗</a>
+      </article>
+      <article id="stablecoin-sandbox">
+        <div class="team-card-top"><b>02</b><p class="eyebrow"><i></i>The rails</p></div>
+        <h2>Stablecoin Sandbox</h2>
+        <p>Experiment with issuance, settlement, Token-2022 transfer hooks, confidential transfers, and PYUSD / USDC flows.</p>
+        <strong class="team-benefit-label">What members get</strong>
+        <ul>
+          <li>Shared sandbox with test tokens, faucet access, and devnet infra</li>
+          <li>Mentorship from ChainPay / Token-2022 build experience</li>
+          <li>A credible demo project for grant applications</li>
+        </ul>
+        <div class="team-resources"><b>Reference links</b>
+          <a href="https://solana.com/docs/programs/examples" target="_blank">Token-2022 examples ↗</a>
+          <a href="https://solana.com/skills" target="_blank">Confidential transfers skill ↗</a>
+          <a href="https://solana.com/grants" target="_blank">Solana Foundation grants ↗</a>
+        </div>
+        <a href="#apply">Join this team ↗</a>
+      </article>
+      <article id="agentic-payments">
+        <div class="team-card-top"><b>03</b><p class="eyebrow"><i></i>The frontier</p></div>
+        <h2>Agentic Payments</h2>
+        <p>Build on x402 and MCP tooling for agents that can pay each other, with human-approved and delegated-wallet modes.</p>
+        <strong class="team-benefit-label">What members get</strong>
+        <ul>
+          <li>Direct access to ChainPay architecture as a working reference</li>
+          <li>Up to $7 AI credit for experiments</li>
+          <li>Visibility for Colosseum and hackathon submissions</li>
+        </ul>
+        <div class="team-resources"><b>Reference links</b>
+          <a href="https://solana.com/x402" target="_blank">Solana x402 overview ↗</a>
+          <a href="https://solana.com/developers/guides/getstarted/intro-to-x402" target="_blank">x402 getting started ↗</a>
+          <a href="https://docs.x402.org/core-concepts/network-and-token-support" target="_blank">Network and token support ↗</a>
+        </div>
+        <a href="#apply">Join this team ↗</a>
+      </article>
+      <article id="mobile-consumer">
+        <div class="team-card-top"><b>04</b><p class="eyebrow"><i></i>The face</p></div>
+        <h2>Mobile &amp; Consumer</h2>
+        <p>Ship usable Solana apps for Ghana and beyond, with access to Solana Mobile / Seeker and a path toward App Store and Play Store distribution.</p>
+        <strong class="team-benefit-label">What members get</strong>
+        <ul>
+          <li>Ghana Solana Community dApp Store / Publisher account</li>
+          <li>Priority Seeker testing track and direct dApp Store distribution</li>
+          <li>Zero commission on dApp Store distribution</li>
+        </ul>
+        <div class="team-resources"><b>Reference links</b>
+          <a href="https://publish.solanamobile.com" target="_blank">Publisher portal ↗</a>
+          <a href="https://docs.solanamobile.com/solana-mobile-stack/dapp-store" target="_blank">dApp Store developer docs ↗</a>
+          <a href="https://solanamobile.com/developers" target="_blank">Mobile builder grants ↗</a>
+        </div>
+        <a href="#apply">Join this team ↗</a>
+      </article>
+    </section>
+
+    <section class="teams-benefits">
+      <div class="wrap">
+        <p class="eyebrow"><i></i>What you unlock</p>
+        <h2>Opportunity follows<br><em>contribution.</em></h2>
+        <div class="benefit-strip">
+          <span>Mobile builders <b>Solana Seeker + app distribution</b></span>
+          <span>AI builders <b>$7 AI credit for experiments</b></span>
+          <span>Sandbox builders <b>Token-2022 and stablecoin lab access</b></span>
+          <span>Validator builders <b>Six-week Validator School</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-process wrap">
+      <div>
+        <p class="eyebrow"><i></i>How selection works</p>
+        <h2>Ready is<br><em>demonstrated.</em></h2>
+      </div>
+      <ol>
+        <li><b>01</b><span>Choose the team where your skills and curiosity have the clearest fit.</span></li>
+        <li><b>02</b><span>Submit the short application with one concrete contribution you can own.</span></li>
+        <li><b>03</b><span>Shortlisted builders join an interview round to show readiness and working style.</span></li>
+        <li><b>04</b><span>Team leads align you to a milestone and the next shared demo day.</span></li>
+      </ol>
+    </section>
+
+    <section class="team-apply" id="apply">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow light"><i></i>Join the stack</p>
+          <h2>Pick a lane.<br><em>Bring proof.</em></h2>
+          <p>Applications are reviewed by the organizing circle. Team placement is confirmed after the interview round.</p>
+        </div>
+        <form class="team-application" onsubmit="this.querySelector('button').textContent='Application received ↗';this.querySelector('small').textContent='Thanks. Shortlisted builders will be invited to an interview round before team placement.';return false;">
+          <div class="form-field"><label>Your name</label><input required placeholder="Full name" /></div>
+          <div class="form-field"><label>Email</label><input required type="email" placeholder="you@example.com" /></div>
+          <div class="form-field form-field-wide"><label>Preferred team</label><select required><option value="" disabled selected>Choose a team</option><option>Validators</option><option>Stablecoin Sandbox</option><option>Agentic Payments</option><option>Mobile &amp; Consumer</option></select></div>
+          <div class="form-field form-field-wide"><label>What are you ready to contribute?</label><textarea rows="4" placeholder="Share your skills, a project, or the first milestone you would take on." required></textarea></div>
+          <button class="button button-ink button-default" type="submit">Apply to a team ↗</button>
+          <small>Selection is followed by an interview to understand readiness, fit, and commitment.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ AMBASSADORS PAGE ══════════════════════════════ -->
+  <main class="page ambassadors-page" id="page-ambassadors">
+    <section class="ambassadors-hero wrap">
+      <div>
+        <p class="eyebrow"><i></i>Founding Ambassador Programme</p>
+        <h1>Start a Solana<br><em>room of your own.</em></h1>
+        <p>Bring useful Solana learning, real builder practice, and a durable community to your university.</p>
+      </div>
+      <div class="ambassador-orbit" aria-hidden="true">
+        <span>Campus</span>
+        <i><img src="public/dame-dame-medium.png" alt="" /></i>
+        <span>Network</span>
+      </div>
+    </section>
+
+    <section class="ambassador-benefits wrap">
+      <div class="benefit-intro">
+        <p class="eyebrow"><i></i>What you receive</p>
+        <h2>More than a title.</h2>
+        <p>Founding Ambassadors get the tools, access, and public credit to make a real contribution on campus.</p>
+      </div>
+      <div class="benefit-grid">
+        <article><b>01</b><h3>Founding Ambassador status</h3><p>Be publicly credited as a Founding Ambassador across Solana Ghana reports and communications.</p></article>
+        <article><b>02</b><h3>Official Discord role</h3><p>A direct line to the core team and the broader Solana Ghana community.</p></article>
+        <article><b>03</b><h3>Starter curriculum pack</h3><p>The rssol-memory Rust-to-Solana curriculum, presentation material, and workshop templates ready for campus.</p></article>
+        <article><b>04</b><h3>Chartered Solana club</h3><p>Support to formally register a Solana club at your university within the Solana Ghana network.</p></article>
+        <article><b>05</b><h3>Priority mentorship</h3><p>1:1 sessions with the core team and ecosystem builders as the programme grows.</p></article>
+        <article><b>06</b><h3>Real builder experience</h3><p>Run workshops, build nights, and events that belong on your GitHub and CV.</p></article>
+        <article><b>07</b><h3>Colosseum builder network</h3><p>Connection to the global Solana builder community through Colosseum's directory.</p></article>
+        <article><b>08</b><h3>Devnet tools and RPC access</h3><p>Covered RPC endpoint costs so you and your students are not blocked during build nights.</p></article>
+      </div>
+    </section>
+
+    <section class="ambassador-apply">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow light"><i></i>Become an ambassador</p>
+          <h2>Make the first<br>useful move.</h2>
+          <p>You do not need to arrive with a finished club. You need the intent to convene, learn in public, and help other builders ship.</p>
+        </div>
+        <form class="ambassador-form" onsubmit="this.querySelector('button').textContent='Interest noted ↗';this.querySelector('small').textContent='Thanks. This application interface is ready; connect a form inbox before applications are reviewed.';return false;">
+          <div class="form-field"><label>Your name</label><input name="name" required placeholder="Your full name" /></div>
+          <div class="form-field"><label>Email address</label><input name="email" required type="email" placeholder="you@example.com" /></div>
+          <div class="form-field"><label>University</label><input name="university" required placeholder="Your university" /></div>
+          <div class="form-field"><label>GitHub or portfolio</label><input name="github" placeholder="https://github.com/your-name" /></div>
+          <div class="form-field form-field-wide"><label>What would you build on campus?</label><textarea name="plan" required rows="4" placeholder="A workshop, club, build night, or another useful first move."></textarea></div>
+          <button class="button button-ink button-default" type="submit">Join the founding programme ↗</button>
+          <small>Founding applications are reviewed manually. We will only use these details for programme follow-up.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ COMMUNITY PAGE ══════════════════════════════ -->
+  <main class="page community-page" id="page-community">
+    <section class="community-hero wrap">
+      <div>
+        <p class="eyebrow"><i></i>Four people, one starting point</p>
+        <h1>A local signal<br>with <em>global reach.</em></h1>
+        <p>We are building independently and deliberately: a durable place for Ghanaian builders to find each other and the wider Solana ecosystem.</p>
+      </div>
+      <div class="community-logo">
+        <img src="public/solana_ghana.jpeg" alt="Solana Ghana Community mark" />
+        <span>BUILD · CONNECT · EMPOWER</span>
+      </div>
+    </section>
+
+    <section class="team-wrap">
+      <div class="wrap">
+        <p class="eyebrow"><i></i>The founding circle</p>
+        <h2>Start with<br>who is here.</h2>
+        <div class="team-orbit">
+          <svg viewBox="0 0 1000 280" preserveAspectRatio="none" aria-hidden="true"><path d="M0,160 C180,20 340,280 510,135 S770,5 1000,155" /></svg>
+          <article><div class="person p0">KA</div><h3>Kwasi Awuah</h3><p>Outreach + technical mentorship</p></article>
+          <article><div class="person p1">BR</div><h3>BR1ANTT_</h3><p>Community</p></article>
+          <article><div class="person p2">+</div><h3>Founding role</h3><p>To be confirmed</p></article>
+          <article><div class="person p3">+</div><h3>Founding role</h3><p>To be confirmed</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="join-grid wrap" id="join">
+      <div>
+        <p class="eyebrow"><i></i>Find the channel</p>
+        <h2>The room is<br>taking shape.</h2>
+        <p>Choose a channel. We'll share the earliest event and build information with the founding community first.</p>
+      </div>
+      <div class="channels">
+        <a href="https://t.me/solanaghanacommunity" target="_blank"><b>Telegram</b><span>For the quick signal ↗</span></a>
+        <a href="https://chat.whatsapp.com/JTaWqtd3YK78ZMHhChc9Z5?mode=gi_t" target="_blank"><b>WhatsApp</b><span>For the community room ↗</span></a>
+        <a href="#"><b>GitHub</b><span>For the work itself ↗</span></a>
+      </div>
+    </section>
+
+    <section class="community-statement">
+      <div>
+        <p class="eyebrow light"><i></i>Where this points</p>
+        <h2>Superteam Ghana is an outcome we build toward—not a title we borrow.</h2>
+        <p>Independent community initiative. Official recognition and representation will follow written authorization.</p>
+      </div>
+      <form class="signup dark" onsubmit="this.querySelector('small').textContent='Thank you — we\'ll be in touch when the founding cohort opens.';this.querySelector('button').textContent='You\'re in ↗';return false;">
+        <label>Get the first invite</label>
+        <div><input type="email" placeholder="you@example.com" required /><button class="button button-lime button-default" type="submit">Keep me posted ↗</button></div>
+        <small>Founding cohort updates only. No noise.</small>
+      </form>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════ SHARED FOOTER ══════════════════════════════ -->
+  <footer class="footer">
+    <div>
+      <p class="eyebrow light"><i></i>Independent initiative</p>
+      <h2>Build Ghana's<br><em>on-ramp.</em></h2>
+      <div class="footer-adinkra" aria-label="Adinkra symbols">
+        <span class="adinkra"><img src="public/gye-nyame-medium.png" alt="Gye Nyame" /></span>
+        <span class="adinkra"><img src="public/akoma-ntoaso-medium.png" alt="Akoma Ntoaso" /></span>
+        <span class="adinkra"><img src="public/akofena-medium.png" alt="Akofena" /></span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div>
+        <b>Explore</b>
+        <a href="#" onclick="showPage('learn');return false;">Learn</a>
+        <a href="#" onclick="showPage('build');return false;">Build</a>
+        <a href="#" onclick="showPage('security');return false;">Teams</a>
+      </div>
+      <div>
+        <b>Connect</b>
+        <a href="https://t.me/solanaghanacommunity" target="_blank">Telegram</a>
+        <a href="https://chat.whatsapp.com/JTaWqtd3YK78ZMHhChc9Z5?mode=gi_t" target="_blank">WhatsApp</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-base">© 2026 Solana Ghana Community <span>Not an official Superteam or Solana Foundation chapter.</span></div>
+  </footer>
+
+</div><!-- /.site -->
+
+<script>
+function showPage(id) {
+  // hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // show target
+  const target = document.getElementById('page-' + id);
+  if (target) { target.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  // update nav active state
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navLink = document.getElementById('nav-' + id);
+  if (navLink) navLink.classList.add('active');
+  // update header theme
+  document.getElementById('app').className = 'site';
+  document.getElementById('main-header').className = 'site-header';
+}
+</script>
+</body>
+</html>
